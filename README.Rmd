@@ -13,7 +13,11 @@ nvim-cmp Lua LaTeX Symbols is a completion source for
 [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) that provides sources for LaTeX
 symbols. This is especially useful for editing
 [TeX](#only-for-certain-file-types) file types. It gets them from this URL:
-https://milde.users.sourceforge.net/LUCR/Math/data/unimathsymbols.txt.
+https://milde.users.sourceforge.net/LUCR/Math/data/unimathsymbols.txt. *The
+purpose of this plugin is to provide a 100% Lua alternative to
+[cmp-latex-symbols](https://github.com/kdheepak/cmp-latex-symbols).*
+cmp-latex-symbols uses Julia code to generate the symbols list, whereas this
+plugin sticks to Lua instead.
 
 # Installation
 
