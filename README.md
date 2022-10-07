@@ -20,7 +20,7 @@ nvim-cmp Lua LaTeX Symbols
 
 nvim-cmp Lua LaTeX Symbols is a completion source for
 [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) that provides sources
-for fonts. This is especially useful for editing
+for LaTeX symbols. This is especially useful for editing
 [TeX](#only-for-certain-file-types) file types. It gets them from this
 URL:
 <https://milde.users.sourceforge.net/LUCR/Math/data/unimathsymbols.txt>.
@@ -40,7 +40,7 @@ end)
 ``` lua
 require "cmp".setup {
     sources = {
-        { name = "fonts" }
+        { name = "lua-latex-symbols" }
     }
 }
 ```
@@ -51,7 +51,7 @@ require "cmp".setup {
 -- Only enable `lua-latex-symbols` for `tex` and `plaintex` file types
 require "cmp".setup.filetype({ "tex", "plaintex" }, {
     sources = {
-        { name = "fonts"}
+        { name = "lua-latex-symbols"}
     }
 })
 ```
