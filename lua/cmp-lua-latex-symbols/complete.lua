@@ -42,7 +42,7 @@ for i,v in function() return symstr:find("\n", pos, true) end do
 						insertText = Symbol,
 						filterText = section
 					})
-				else
+
 					break
 				end
 			end
