@@ -11,7 +11,7 @@ local symstr = cmd:read "*a" -- We need to read the symbols.
 local pos,symtbl = 0,{}
 for i,v in function() return symstr:find("\n", pos, true) end do
 	-- A caret needs to be added at the end to parse the last section.
-	local line = symstr:sub(pos, i - 1).."^"
+	local line = symstr:sub(pos, i - 1):gsub("^%x-%^", "").."^"
 
 	-- Remove comments (They start with a hashtag.)
 	if not line:find("#", 0, true) then
@@ -28,12 +28,12 @@ for i,v in function() return symstr:find("\n", pos, true) end do
 
 				-- Continue if we’re in the second section and the symbol is a
 				-- Unicode character
-				if (count == 2 and section:byte() and section:byte() > 127) then
+				if (count == 1 and section:byte() and section:byte() > 127) then
 					isunicode = true
 					Symbol = section
 				-- Continue if we’re in the third section and the code starts
 				-- with a backslash
-				elseif (count == 3 and isunicode and section:find("\\", 1, true)) then
+				elseif (count == 2 and isunicode and section:find("\\", 1, true)) then
 					isunicode = false
 
 					table.insert(symtbl, {
@@ -42,6 +42,8 @@ for i,v in function() return symstr:find("\n", pos, true) end do
 						insertText = Symbol,
 						filterText = section
 					})
+				else
+					break
 				end
 			end
 
