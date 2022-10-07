@@ -28,12 +28,12 @@ for i,v in function() return symstr:find("\n", pos, true) end do
 
 				-- Continue if we’re in the second section and the symbol is a
 				-- Unicode character
-				if (count == 1 and section:byte() and section:byte() > 127) then
+				if count == 1 and section:byte() and section:byte() > 127 then
 					isunicode = true
 					Symbol = section
 				-- Continue if we’re in the third section and the code starts
 				-- with a backslash
-				elseif (count == 2 and isunicode and section:find("\\", 1, true)) then
+				elseif count == 2 and isunicode and section:find("\\", 1, true) then
 					isunicode = false
 
 					table.insert(symtbl, {
