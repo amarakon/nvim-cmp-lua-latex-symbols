@@ -41,10 +41,17 @@ end)
 
 ## Setup
 
+The following code block shows the default options.
+
 ``` lua
 require "cmp".setup {
     sources = {
-        { name = "lua-latex-symbols" }
+        -- The `cache` option is used to determine whether to generate the list
+        -- of symbols every time you start Neovim, or if it should be stored in
+        -- a cache file to save time. I strongly do not advise changing this
+        -- option because the data used for this plugin has not been updated
+        -- since 2011.
+        { name = "lua-latex-symbols", option = { cache = true } }
     }
 }
 ```
@@ -61,11 +68,6 @@ require "cmp".setup.filetype({ "tex", "plaintex" }, {
 ```
 
 ## Issues
-
--   The text file used to parse the symbols is really large. Also, the
-    code has to loop through each line of the file, then loop through
-    each section, and check if the symbol is valid. This takes a long
-    time. I plan to add a cache feature to this plugin in the future.
 
 -   There are certain instances where you will see two different symbols
     with the same name. Most of the time, only the first symbol is
