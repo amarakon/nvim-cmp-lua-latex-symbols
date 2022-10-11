@@ -12,6 +12,6 @@ function source.get_keyword_pattern()
 	return "\\\\[^[:blank:]]*"
 end
 
-source.complete = require "cmp-lua-latex-symbols/complete"
+source.complete = require "cmp-lua-latex-symbols.complete"
 
 return source
