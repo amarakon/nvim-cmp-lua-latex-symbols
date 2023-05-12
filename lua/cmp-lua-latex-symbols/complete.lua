@@ -1,4 +1,8 @@
-return function(_, params, callback)
+return function(self, params, callback)
+    if not vim.regex(self.get_keyword_pattern() .. "$"):match_str(params.context.cursor_before_line) then
+        return callback()
+    end
+
 	local cached = require
 		"cmp-lua-latex-symbols.options".validate(params).cache
 
